@@ -23,6 +23,7 @@ class TransactionsController extends Controller
   {
 
         $transaction = new Transaction();
+        $transaction -> date = $request->date;
         $transaction -> description = $request->description;
         $transaction -> type = $request->type;
         $transaction -> amount = $request->amount;
@@ -47,9 +48,12 @@ class TransactionsController extends Controller
   {
       if(isset($_POST['delete'])){
           $transaction->delete();
-          return redirect('/');
+          /** return redirect('/'); **/
+          return response()->json(['success'=>"Transaction Deleted successfully.", $transaction->id]);
+
       }
       else {
+          $transaction->date = $request->date;
           $transaction->description = $request->description;
           $transaction->type = $request->type;
           $transaction->amount = $request->amount;

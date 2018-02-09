@@ -7,9 +7,10 @@
 <div class="container">
                 @if (Auth::check())
                         <h2>Transactions record</h2>
-                        <a href="/transaction" class="btn btn-primary">Add new Transaction</a>
+                        <a href="/transaction" class="btn btn-primary btn-sm">Add new Transaction</a>
                         <table class="table">
                             <thead><tr>
+                                <th colspan="1">Date</th>
                                 <th colspan="1">Descriptions</th>
                                 <th colspan="1">Type</th>
                                 <th colspan="1">Amount</th>
@@ -17,16 +18,16 @@
                         </thead>
                         <tbody>@foreach($user->transactions as $transaction)
                             <tr>
-
-                                    <td>{{$transaction->description}}</td>
-                                    <td>{{$transaction->type}}</td>
-                                    <td>{{$transaction->amount}}</td>
+                                  <td>{{$transaction->date}}</td>
+                                  <td>{{$transaction->description}}</td>
+                                  <td>{{$transaction->type}}</td>
+                                  <td>{{$transaction->amount}}</td>
 
                                 <td>
-
                                     <form action="/transaction/{{$transaction->id}}">
-                                        <button type="submit" name="edit" class="btn btn-primary">Edit</button>
-                                        <button type="submit" name="delete" formmethod="POST" class="btn btn-danger">Delete</button>
+                                        <button type="submit" name="edit" class="btn btn-secondary btn-sm">Edit</button>
+                                        <button type="submit" name="delete" formmethod="POST" class="btn btn-danger btn-sm">
+                                        X</button>
                                         {{ csrf_field() }}
                                     </form>
                                 </td>
