@@ -11,11 +11,19 @@
 |
 */
 
-Route::get('/', 'TransactionsController@index');
+Route::get('/', 'AccountsController@index');
 
 Auth::routes();
 
-Route::get('/transaction', 'TransactionsController@add');
+Route::get('/account', 'AccountsController@add');
+Route::post('/account','AccountsController@create');
+
+Route::get('/account/{account}','AccountsController@edit');
+Route::post('/account/{account}','AccountsController@update');
+
+Route::get('/transactionlist/{account}', 'TransactionsController@list');
+
+Route::get('/add/{account}', 'TransactionsController@add');
 Route::post('/transaction', 'TransactionsController@create');
 
 Route::get('/transaction/{transaction}','TransactionsController@edit');

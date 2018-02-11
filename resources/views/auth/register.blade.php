@@ -61,6 +61,9 @@
                             </div>
                         </div>
 
+                      {{-- // hidden value for role , admin = 1, superuser= 2, user = 3. --}}
+                      <input id="role" type="hidden" name="role" value="1"></input>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

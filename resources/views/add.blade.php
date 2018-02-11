@@ -6,6 +6,7 @@
 
 <div class="container">
                 <h2>Add New Transaction</h2>
+                  <div class="col-lg-1 control-label">accountid#:{{$account->id}}</div>
 
 <form method="POST" action="/transaction">
 
@@ -23,6 +24,8 @@
               </select></div>
         <div class="col-lg-1 control-label">Amount: </div>
             <div class="col-lg-2"><input name="amount" type="number" pattern="[0-9]+([\.,][0-9]+)?" step="0.01" class="form-control"></input></div>
+
+        <input type="hidden" name="account_id" value="{{$account->id}}"></input>
     </div>
 
 

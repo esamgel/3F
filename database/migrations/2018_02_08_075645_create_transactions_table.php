@@ -19,7 +19,7 @@ class CreateTransactionsTable extends Migration
             $table->string('description');
             $table->string('type');
             $table->decimal('amount');
-            $table->integer('user_id')->unsigned()->index();
+            $table->integer('account_id')->unsigned()->index();
             $table->timestamps();
         });
     }

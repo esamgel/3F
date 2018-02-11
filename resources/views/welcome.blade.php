@@ -1,33 +1,40 @@
 @extends('layouts.app')
 
-{{-- //this will add laravel’s default navbar to your page --}}
-
 @section('content')
-
 <div class="container">
                 @if (Auth::check())
-                        <h2>Transactions record</h2>
-                        <a href="/transaction" class="btn btn-primary btn-sm">Add new Transaction</a>
+                        <h2>Account List</h2>
+                        <a href="/account" class="btn btn-primary">Add new Account</a>
                         <table class="table">
                             <thead><tr>
-                                <th colspan="1">Date</th>
-                                <th colspan="1">Descriptions</th>
+                                <th colspan="1">Acc#</th>
+                                <th colspan="1">Account Name</th>
                                 <th colspan="1">Type</th>
-                                <th colspan="1">Amount</th>
+                                <th colspan="2">Description</th>
                             </tr>
                         </thead>
-                        <tbody>@foreach($user->transactions as $transaction)
+                        <tbody>@foreach($user->accounts as $account)
                             <tr>
-                                  <td>{{$transaction->date}}</td>
-                                  <td>{{$transaction->description}}</td>
-                                  <td>{{$transaction->type}}</td>
-                                  <td>{{$transaction->amount}}</td>
-
+                              <td>
+                                  {{$account->id}}
+                              </td>
                                 <td>
-                                    <form action="/transaction/{{$transaction->id}}">
+                                    {{$account->name}}
+                                </td>
+                                <td>
+                                    {{$account->type}}
+                                </td>
+                                <td>
+                                    {{$account->description}}
+                                </td>
+                                <td>
+                                    <a href="/transactionlist/{{$account->id}}" class="btn btn-primary btn-sm">View Transactions</a>
+
+                                </td>
+                                <td>
+                                    <form action="/account/{{$account->id}}">
                                         <button type="submit" name="edit" class="btn btn-secondary btn-sm">Edit</button>
-                                        <button type="submit" name="delete" formmethod="POST" class="btn btn-danger btn-sm">
-                                        X</button>
+                                        <button type="submit" name="delete" formmethod="POST" class="btn btn-danger btn-sm">Delete</button>
                                         {{ csrf_field() }}
                                     </form>
                                 </td>
@@ -41,6 +48,4 @@
                 @endif
 
 </div>
-
-
 @endsection
