@@ -28,3 +28,5 @@ Route::post('/transaction', 'TransactionsController@create');
 
 Route::get('/transaction/{transaction}','TransactionsController@edit');
 Route::post('/transaction/{transaction}','TransactionsController@update');
+
+Route::get('/balancelist/{account}', 'BalancesController@total');

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Transaction;
 use App\Account;
+use App\Balance;
 
 class TransactionsController extends Controller
 {
@@ -14,8 +15,8 @@ class TransactionsController extends Controller
     if (Auth::check() && Auth::user()->role == '1')
     {
         $user = Auth::user();
-      //  $account = new Account();
-      //  $account->id = $account_id;
+        $transaction = new Transaction();
+        $transaction->account_id = $account->id;
 
         return view('transactionlist', compact('account'));
     }

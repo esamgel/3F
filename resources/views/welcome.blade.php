@@ -29,7 +29,9 @@
                                 </td>
                                 <td>
                                     <a href="/transactionlist/{{$account->id}}" class="btn btn-primary btn-sm">View Transactions</a>
-
+                                </td>
+                                <td>
+                                    <a href="/balancelist/{{$account->id}}" class="btn btn-primary btn-sm"> Veiw Balance</a>
                                 </td>
                                 <td>
                                     <form action="/account/{{$account->id}}">
