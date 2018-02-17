@@ -45,7 +45,7 @@ class BalancesController extends Controller
       //$record = Balance::where('account_id', '=', Input::get('$account->id'))->first();
       $balance = new Balance();
 
-      if((Balance::find($account->id)) == NULL)
+      if((Balance::find($account->user_id)) == NULL)
       {
           //$balance = new Balance();
           $balance->saving_bal = 0;
@@ -69,7 +69,7 @@ class BalancesController extends Controller
       if($account->type == 'credit')
           $key = 'credit_bal';
 
-      $balance = Balance::find($account->id);
+      $balance = Balance::find($account->user_id);
       $balance->$key = $total;
       $balance->save();
 

@@ -3,26 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Auth;
 use App\Account;
+use App\Client;
 
 class AccountsController extends Controller
 {
-    public function index()
+    public function index(Client $client)
     {
         if (Auth::check() && Auth::user()->role == '1')
         {
-            $user = Auth::user();
-            return view('welcome', compact('user'));
+
+            return view('welcome', compact('client'));
         }
         else {
             return view('auth.login');
         }
     }
 
-    public function add()
+    public function add(Client $client)
     {
-        return view('addaccount');
+        return view('addaccount', compact('client'));
     }
 
     public function create(Request $request)
@@ -31,9 +33,13 @@ class AccountsController extends Controller
         $account -> name = $request->name;
         $account -> type = $request->type;
         $account -> description = $request->description;
-        $account -> user_id = Auth::id();
+        $account -> client_id = $request->client_id;
         $account -> save();
-        return redirect('/');
+
+        $client = new Client();
+        $client -> id = $request->client_id;
+
+        return view('welcome', compact('client'));
     }
 
     public function edit(Account $account)
@@ -49,18 +55,23 @@ class AccountsController extends Controller
 
     public function update(Request $request, Account $account)
     {
+        $client = new Client();
+        $client->id = $account->client_id;
+
         if(isset($_POST['delete']))
         {
+
             $account->delete();
-            return redirect('/');
+            return view('welcome', compact('client'));
         }
         else{
           $account -> name = $request->name;
           $account -> type = $request->type;
           $account -> description = $request->description;
-          $account -> user_id = Auth::id();
+          $account -> client_id = $request->client_id;
           $account -> save();
-          return redirect('/');
+
+          return view('welcome', compact('client'));
         }
     }
 }

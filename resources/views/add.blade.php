@@ -8,7 +8,7 @@
                 <h2>Add New Transaction</h2>
                   <div class="col-lg-1 control-label">accountid#:{{$account->id}}</div>
 
-<form method="POST" action="/transaction">
+<form method="POST" action="/addtrans/{{$account->id}}">
 
     <div class="form-group">
         <div class="col-lg-1 control-label">Date:</div>

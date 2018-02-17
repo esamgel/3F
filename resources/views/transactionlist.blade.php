@@ -8,7 +8,7 @@
                 @if (Auth::check())
                         <h2>Transactions record</h2>
                         <div > Account#:  {{$account->id}} </div>
-                        <a href="/add/{{$account->id}}" class="btn btn-primary btn-sm">Add new Transaction</a>
+                        <a href="/addtrans/{{$account->id}}" class="btn btn-primary btn-sm">Add new Transaction</a>
                         <table class="table">
                             <thead><tr>
                                 <th colspan="1">Date</th>
@@ -25,7 +25,7 @@
                                   <td>{{$transaction->amount}}</td>
 
                                 <td>
-                                    <form action="/transaction/{{$transaction->id}}">
+                                    <form action="/uptransaction/{{$transaction->id}}">
                                         <button type="submit" name="edit" class="btn btn-secondary btn-sm" >Edit</button>
                                         <button type="submit" name="delete" formmethod="POST" class="btn btn-danger btn-sm">
                                         X</button>

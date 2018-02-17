@@ -3,41 +3,41 @@
 @section('content')
 <div class="container">
                 @if (Auth::check())
-                        <h2>Account List</h2>
-                        <a href="/add/{{$client->id}}" class="btn btn-primary">Add new Account</a>
+                        <h2>Clients List</h2>
+                        <a href="/client" class="btn btn-primary">Add new Client</a>
                         <table class="table">
                             <thead><tr>
-                                <th colspan="1">Acc#</th>
-                                <th colspan="1">Account Name</th>
-                                <th colspan="1">Type</th>
-                                <th colspan="2">Description</th>
+                                <th colspan="1">Id#</th>
+                                <th colspan="1">first Name</th>
+                                <th colspan="1">Last Name</th>
+                                <th colspan="1">user_id</th>
                             </tr>
                         </thead>
-                        <tbody>@foreach($client->accounts as $account)
+                        <tbody>@foreach($client as $client)
                             <tr>
                               <td>
-                                  {{$account->id}}
+                                  {{$client->id}}
                               </td>
                                 <td>
-                                    {{$account->name}}
+                                    {{$client->first_name}}
                                 </td>
                                 <td>
-                                    {{$account->type}}
+                                    {{$client->last_name}}
                                 </td>
                                 <td>
-                                    {{$account->description}}
+                                    {{$client->user_id}}
                                 </td>
                                 <td>
-                                    <a href="/transactionlist/{{$account->id}}" class="btn btn-primary btn-sm">View Transactions</a>
+                                    <a href="/accountlist/{{$client->id}}" class="btn btn-primary btn-sm">View Accounts</a>
                                 </td>
                                 <td>
-                                    <a href="/balancelist/{{$account->user_id}}" class="btn btn-primary btn-sm"> Veiw Balance</a>
+                                    <a href="/balancelist/{{$client->id}}" class="btn btn-primary btn-sm"> Veiw Balance</a>
                                 </td>
                                 <td>
-                                    <form action="/account/{{$account->id}}">
+                                    <form action="/client/{{$client->id}}">
                                         <button type="submit" name="edit" class="btn btn-secondary btn-sm">Edit</button>
                                         <button type="submit" name="delete" formmethod="POST" class="btn btn-danger btn-sm">Delete</button>
-                                        {{csrf_field()}}
+                                        {{ csrf_field() }}
                                     </form>
                                 </td>
                             </tr>

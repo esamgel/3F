@@ -21,7 +21,7 @@ class CreateBalancesTbl extends Migration
             $table->decimal('debit_bal');
             $table->decimal('credit_bal');
             $table->integer('account_id')->unsigned()->index();
-            $table->integer('user_id');
+            $table->integer('client_id');
             $table->timestamps();
         });
     }

@@ -7,7 +7,7 @@
   <div class="container">
   <h1>Edit the Transaction</h1>
 
-  <form method="POST" action="/transaction/{{ $transaction->id }}">
+  <form method="POST" action="/uptransaction/{{$transaction->id}}">
 
   <div class="form-group">
       <div class="col-lg-1 control-label">Date:</div>
@@ -22,6 +22,10 @@
             </select></div>
       <div class="col-lg-1 control-label">Amount: </div>
           <div class="col-lg-2"><input name="amount" type="number" pattern="[0-9]+([\.,][0-9]+)?" step="0.01" class="form-control" value="{{$transaction->amount }}"></input></div>
+
+          <input type="hidden" name="account_id" value="{{$transaction->account_id}}"></input>
+
+
   </div>
 
 

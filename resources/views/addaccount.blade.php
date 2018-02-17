@@ -4,7 +4,7 @@
 <div class="container">
                 <h2>Create New Account</h2>
 
-<form method="POST" action="/account">
+<form method="POST" action="/add/{{$client->id}}">
 
     <div class="form-group">
         <div class="col-lg-2 control-label">Name:</div>
@@ -18,6 +18,7 @@
         <div class="col-lg-2 control-label">Description:</div>
             <div class="col-lg-10"><textarea name="description" class="form-control"></textarea></div>
     </div>
+        <input type="hidden" name="client_id" value="{{$client->id}}"></input>
 
 
     <div class="form-group">

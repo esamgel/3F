@@ -18,6 +18,9 @@
       <div class="col-lg-2 control-label">Description:</div>
           <div class="col-lg-10"><textarea name="description" class="form-control" value="{{$account->description}}">{{$account->description}}</textarea></div>
 
+					{{-- hidden value of account id--}}.
+					<input name="client_id" type="hidden" value="{{$account->client_id}}">
+
 	<div class="form-group">
 		<div class="col-lg-10 col-lg-offset-2"><button type="submit" name="update" class="btn btn-primary">Update </button></div>
 	</div>

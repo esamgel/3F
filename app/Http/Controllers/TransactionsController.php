@@ -56,10 +56,11 @@ class TransactionsController extends Controller
 
   public function update(Request $request, Transaction $transaction)
   {
-      if(isset($_POST['delete'])){
 
-          $account = new Account();
-          $account->id = $transaction->account_id;
+    $account = new Account();
+    $account->id = $transaction->account_id;
+
+      if(isset($_POST['delete'])){
 
           $transaction->delete();
           return view('transactionlist',compact('account'));
@@ -71,7 +72,7 @@ class TransactionsController extends Controller
           $transaction->type = $request->type;
           $transaction->amount = $request->amount;
           $transaction->save();
-          return redirect('/');
+          return view('transactionlist', compact('account'));
       }
   }
 }

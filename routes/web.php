@@ -11,22 +11,35 @@
 |
 */
 
-Route::get('/', 'AccountsController@index');
+
+
+
+
+Route::get('/', 'ClientsController@list');
 
 Auth::routes();
 
-Route::get('/account', 'AccountsController@add');
-Route::post('/account','AccountsController@create');
+Route::get('/client', 'ClientsController@add');
+Route::post('/client', 'ClientsController@create');
+
+Route::get('/client/{client}','ClientsController@edit');
+Route::post('/client/{client}','ClientsController@update');
+
+Route::get('/accountlist/{client}', 'AccountsController@index');
+//Route::post('/accountlist/{client}', 'AccountsController@index');
+
+Route::get('/add/{client}', 'AccountsController@add');
+Route::post('/add/{client}','AccountsController@create');
 
 Route::get('/account/{account}','AccountsController@edit');
 Route::post('/account/{account}','AccountsController@update');
 
 Route::get('/transactionlist/{account}', 'TransactionsController@list');
 
-Route::get('/add/{account}', 'TransactionsController@add');
-Route::post('/transaction', 'TransactionsController@create');
+Route::get('/addtrans/{account}', 'TransactionsController@add');
+Route::post('/addtrans/{account}', 'TransactionsController@create');
 
-Route::get('/transaction/{transaction}','TransactionsController@edit');
-Route::post('/transaction/{transaction}','TransactionsController@update');
+Route::get('/uptransaction/{transaction}','TransactionsController@edit');
+Route::post('/uptransaction/{transaction}','TransactionsController@update');
 
 Route::get('/balancelist/{account}', 'BalancesController@total');

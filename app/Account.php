@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Account extends Model
 {
-    public function user()
+    public function client()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Client::class);
     }
 
     public function Transactions()
