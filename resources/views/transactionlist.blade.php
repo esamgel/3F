@@ -1,20 +1,22 @@
-@extends('layouts.app')
+@extends('layouts.3fcustom')
 
 {{-- //this will add laravel’s default navbar to your page --}}
 
 @section('content')
 
-<div class="container">
                 @if (Auth::check())
                         <h2>Transactions record</h2>
                         <div > Account#:  {{$account->id}} </div>
                         <a href="/addtrans/{{$account->id}}" class="btn btn-primary btn-sm">Add new Transaction</a>
-                        <table class="table">
+                        <div class="table-responsive">
+                          <table class="table table-striped table-sm">
                             <thead><tr>
                                 <th colspan="1">Date</th>
                                 <th colspan="1">Descriptions</th>
                                 <th colspan="1">Type</th>
                                 <th colspan="1">Amount</th>
+                                <th colspan="1"></th>
+                                <th colspan="1"></th>
                             </tr>
                         </thead>
                         <tbody>@foreach($account->transactions as $transaction)
@@ -37,11 +39,11 @@
 
                         @endforeach</tbody>
                         </table>
+                      </div>
                 @else
                     <h3>You need to log in. <a href="/login">Click here to login</a></h3>
                 @endif
 
-</div>
 
 
 @endsection

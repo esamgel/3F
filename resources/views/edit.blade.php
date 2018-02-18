@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.3fcustom')
 
 {{-- // this will add laravel’s default navbar to your page --}}
 

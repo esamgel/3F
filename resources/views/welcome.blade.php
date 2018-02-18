@@ -1,16 +1,19 @@
-@extends('layouts.app')
+@extends('layouts.3fcustom')
 
 @section('content')
-<div class="container">
+
                 @if (Auth::check())
                         <h2>Account List</h2>
                         <a href="/add/{{$client->id}}" class="btn btn-primary">Add new Account</a>
-                        <table class="table">
+                        <div class="table-responsive">
+                          <table class="table table-striped table-sm">
                             <thead><tr>
                                 <th colspan="1">Acc#</th>
                                 <th colspan="1">Account Name</th>
                                 <th colspan="1">Type</th>
                                 <th colspan="2">Description</th>
+                                <th colspan="1"> </th>
+                                <th colspan="1"> </th>
                             </tr>
                         </thead>
                         <tbody>@foreach($client->accounts as $account)
@@ -28,10 +31,10 @@
                                     {{$account->description}}
                                 </td>
                                 <td>
-                                    <a href="/transactionlist/{{$account->id}}" class="btn btn-primary btn-sm">View Transactions</a>
+                                    <a href="/transactionlist/{{$account->id}}" class="btn btn-link btn-sm">View Transactions</a>
                                 </td>
                                 <td>
-                                    <a href="/balancelist/{{$account->user_id}}" class="btn btn-primary btn-sm"> Veiw Balance</a>
+                                    <a href="/balancelist/{{$account->id}}" class="btn btn-link btn-sm"> Veiw Balance</a>
                                 </td>
                                 <td>
                                     <form action="/account/{{$account->id}}">
@@ -45,9 +48,10 @@
 
                         @endforeach</tbody>
                         </table>
+                      </div>
                 @else
                     <h3>You need to log in. <a href="/login">Click here to login</a></h3>
                 @endif
 
-</div>
+
 @endsection

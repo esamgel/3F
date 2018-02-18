@@ -11,10 +11,6 @@
 |
 */
 
-
-
-
-
 Route::get('/', 'ClientsController@list');
 
 Auth::routes();
@@ -26,7 +22,6 @@ Route::get('/client/{client}','ClientsController@edit');
 Route::post('/client/{client}','ClientsController@update');
 
 Route::get('/accountlist/{client}', 'AccountsController@index');
-//Route::post('/accountlist/{client}', 'AccountsController@index');
 
 Route::get('/add/{client}', 'AccountsController@add');
 Route::post('/add/{client}','AccountsController@create');

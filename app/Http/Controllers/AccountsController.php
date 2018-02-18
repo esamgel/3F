@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Auth;
 use App\Account;
 use App\Client;
+use App\Balance;
 
 class AccountsController extends Controller
 {
@@ -30,12 +31,13 @@ class AccountsController extends Controller
     public function create(Request $request)
     {
         $account = new Account();
+
         $account -> name = $request->name;
         $account -> type = $request->type;
         $account -> description = $request->description;
         $account -> client_id = $request->client_id;
         $account -> save();
-
+    
         $client = new Client();
         $client -> id = $request->client_id;
 

@@ -15,4 +15,9 @@ class Client extends Model
   {
       return $this->hasMany(Account::class);
   }
+
+  public function balance()
+  {
+      return $this->hasOne(Balance::class);
+  }
 }

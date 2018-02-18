@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.3fcustom')
 
 @section('content')
 <div class="container">
@@ -14,7 +14,7 @@
                                 <th colspan="1">debit balance</th>
                                 <th colspan="1">credit balance</th>
                                 <th colspan="1">account_id</th>
-                                <th colspan="1">user_id</th>
+                                <th colspan="1">client_id</th>
                             </tr>
                         </thead>
                         <tbody>@foreach($account->balances as $balance)
@@ -26,7 +26,7 @@
                                 <td>{{$balance->debit_bal}}</td>
                                 <td>{{$balance->credit_bal}}</td>
                                 <td>{{$balance->account_id}}</td>
-                                <td>{{$balance->user_id}}</td>
+                                <td>{{$balance->client_id}}</td>
                                 <td>
 
                              {{--  <form action="/task/{{$task->id}}">
