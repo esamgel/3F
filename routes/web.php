@@ -31,6 +31,7 @@ Route::get('/account/{account}','AccountsController@edit');
 Route::post('/account/{account}','AccountsController@update');
 
 Route::get('/transactionlist/{account}', 'TransactionsController@list');
+Route::get('/transactionlist', 'TransactionsController@listall');
 
 Route::get('/addtrans/{account}', 'TransactionsController@add');
 Route::post('/addtrans/{account}', 'TransactionsController@create');

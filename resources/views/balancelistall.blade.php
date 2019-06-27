@@ -3,11 +3,11 @@
 @section('content')
 <div class="container">
                 @if (Auth::check())
-                        <h2>Balances List</h2>
+                        <h2>All Balances History</h2>
                         {{-- <a href="/task" class="btn btn-primary">Add new Task</a> --}}
                         <table class="table">
                             <thead><tr>
-                                <th colspan="1">id</th>
+                                <th colspan="1">Bal#</th>
                                 <th colspan="1">Saving balance</th>
                                 <th colspan="1">Loan balance</th>
                                 <th colspan="1">repayment balance</th>

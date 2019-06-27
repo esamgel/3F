@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Auth;
 use App\Transaction;
@@ -19,6 +20,17 @@ class TransactionsController extends Controller
         $transaction->account_id = $account->id;
 
         return view('transactionlist', compact('account'));
+    }
+  }
+
+  public function listall(Account $account)
+  {
+    if (Auth::check() && Auth::user()->role == '1')
+    {
+        $transactions = DB::table('transactions')->get();
+        
+
+        return view('transactionlistall', compact('transactions'));
     }
   }
 

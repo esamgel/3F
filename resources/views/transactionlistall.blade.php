@@ -5,9 +5,9 @@
 @section('content')
 
                 @if (Auth::check())
-                        <h2>All Transactions record</h2>
-                        <div > Account#:  {{$account->id}} </div>
-                        <a href="/addtrans/{{$account->id}}" class="btn btn-primary btn-sm">Add new Transaction</a>
+                        <h2>All Transactions history</h2>
+                        {{-- <div > Account#:  {{$account->id}} </div> --}}
+                        {{-- <a href="/addtrans/{{$account->id}}" class="btn btn-primary btn-sm">Add new Transaction</a> --}}
                         <div class="table-responsive">
                           <table class="table table-striped table-sm">
                             <thead><tr>
@@ -19,7 +19,7 @@
                                 <th colspan="1"></th>
                             </tr>
                         </thead>
-                        <tbody>@foreach($account->transactions as $transaction)
+                        <tbody>@foreach($transactions as $transaction)
                             <tr>
                                   <td>{{$transaction->date}}</td>
                                   <td>{{$transaction->description}}</td>
