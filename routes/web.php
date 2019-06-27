@@ -21,6 +21,7 @@ Route::post('/client', 'ClientsController@create');
 Route::get('/client/{client}','ClientsController@edit');
 Route::post('/client/{client}','ClientsController@update');
 
+Route::get('/accountlist', 'AccountsController@list');
 Route::get('/accountlist/{client}', 'AccountsController@index');
 
 Route::get('/add/{client}', 'AccountsController@add');
@@ -38,3 +39,4 @@ Route::get('/uptransaction/{transaction}','TransactionsController@edit');
 Route::post('/uptransaction/{transaction}','TransactionsController@update');
 
 Route::get('/balancelist/{account}', 'BalancesController@total');
+Route::get('/balancelist', 'BalancesController@list');

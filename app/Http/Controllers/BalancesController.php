@@ -19,8 +19,9 @@ class BalancesController extends Controller
     if (Auth::check() && Auth::user()->role == '1')
     {
         $user = Auth::user();
+        $balances = DB::table('balances')->get();
 
-        return view('balancelist', compact('account'));
+        return view('balancelistall', compact('balances'));
     }
   }
 

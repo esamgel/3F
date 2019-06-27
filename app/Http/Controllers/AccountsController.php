@@ -23,6 +23,19 @@ class AccountsController extends Controller
         }
     }
 
+    public function list(Client $client)
+    {
+        if (Auth::check() && Auth::user()->role == '1')
+        {
+            $accounts = DB::table('accounts')->get();
+    
+            return view('accountlist', compact('accounts'));
+        }
+        else {
+            return view('auth.login');
+        }
+    }
+
     public function add(Client $client)
     {
         return view('addaccount', compact('client'));

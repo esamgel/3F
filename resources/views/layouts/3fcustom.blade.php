@@ -63,19 +63,19 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="shopping-cart"></span>
-                  Accounts
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/">
                   <span data-feather="users"></span>
                   Clients
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/accountlist">
+                  <span data-feather="shopping-cart"></span>
+                  Accounts
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/balancelist">
                   <span data-feather="bar-chart-2"></span>
                   Reports
                 </a>

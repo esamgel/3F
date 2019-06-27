@@ -13,8 +13,8 @@ class ClientsController extends Controller
   {
       if (Auth::check() && Auth::user()->role == '1')
       {
-          $client = DB::table('clients')->get();
-          return view('clientlist', compact('client'));
+          $clients = DB::table('clients')->get();
+          return view('clientlist', compact('clients'));
       }
       else {
           return view('auth.login');
