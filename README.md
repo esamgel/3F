@@ -21,13 +21,13 @@ cp .env.example .env
  ```php
 php artisan key:generate
 ```
-4. Create an empty database(e.g db.sqlite)
+4. Create an empty database (e.g db.sqlite)
 5. In the .env file, add database information
 6. Migrate the database
- ```bash
+ ```php
 php artisan migrate 
 ```
 7. Start php serve
- ```bash
+ ```php
 php artisan serve 
 ```
