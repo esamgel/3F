@@ -1,5 +1,5 @@
-# 3F
-Family and Friends Finance app - focus on small credit union group (less than 100 member)
+# My3F
+My Family and Friends Finance app - focus on small credit union group (less than 100 members)
 
 Requirement
 - php 7
@@ -21,7 +21,7 @@ cp .env.example .env
  ```php
 php artisan key:generate
 ```
-4. Create an empty database (e.g db.sqlite)
+4. Create an empty database (e.g local dev: recommend db.sqlite, on Production: postgres)
 5. In the .env file, add database information
 6. Migrate the database
  ```php
